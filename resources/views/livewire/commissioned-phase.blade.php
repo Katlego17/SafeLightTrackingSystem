@@ -5,8 +5,8 @@
             <tr>
                 <th>ID</th>
                 <th>Serial Number</th>
-                <th>EB ID</th>
-                <th>B ID</th>
+                <th>Electronic Board ID</th>
+                <th>Battery ID</th>
             </tr>
         </thead>
         <tbody>

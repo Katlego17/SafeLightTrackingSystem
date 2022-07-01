@@ -3,7 +3,7 @@
     <table style="text-align: center; margin:auto">
         <thead>
             <tr>
-                <th>Check</th>
+                <th></th>
                 <th>ID</th>
                 <th>Serial Number</th>
                 <th>Electronic Board ID</th>
@@ -14,7 +14,7 @@
             @foreach($addedLights as $value)
             <tr>
                 <td>
-                    <input type="checkbox" class="form-checkbox h-6 w-6" wire:model="{{$value->id}}" >
+                    <input type="checkbox" id="cb1" name="cb1" class="form-checkbox h-6 w-6" value="{{$value->id}}" wire:model.defer="selectedProducts" ><!-- defer so it doesnt reload everytime its checked-->
                 </td>
                 <td>{{$value->id}}</td>
                 <td>{{$value->SerialNumber}}</td>
@@ -24,4 +24,6 @@
             @endforeach
         </tbody>
     </table>
+    <button wire:click="changePhase()">Send Selected To Next Phase</button>
+    <button wire:click="FailPhase()">Fail Selected Light</button>
 </div>

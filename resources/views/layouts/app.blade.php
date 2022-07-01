@@ -20,24 +20,16 @@
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
         <script>
             //Date picker
-        $( function() {
-          $( "#datepicker" ).datepicker();
-        } );
-            //Tabbing my phases
-            function change_tab(id)
-                {
-                    document.getElementById("page_content").innerHTML=document.getElementById(id+"_desc").innerHTML;
-                    document.getElementById("page1").className="notselected";
-                    document.getElementById("page2").className="notselected";
-                    document.getElementById("page3").className="notselected";
-                    document.getElementById("page4").className="notselected";
-                    document.getElementById("page5").className="notselected";
-                    document.getElementById("page6").className="notselected";
-                    document.getElementById("page7").className="notselected";
-                    document.getElementById("page8").className="notselected";
-                    document.getElementById(id).className="notselected";
-                    document.getElementById(id).className="selected";
-                }
+            $( function() {
+            $( "#datepicker" ).datepicker();
+            } );
+            //Check box select all
+            $(function(){
+                $("#allcb").click(function() {
+                    var chkBoxes = $("input[id^=cb]");
+                    chkBoxes.prop("checked", !chkBoxes.prop("checked"));
+                });
+            });
         </script>
         @livewireStyles
     </head>

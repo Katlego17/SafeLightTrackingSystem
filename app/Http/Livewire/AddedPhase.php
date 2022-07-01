@@ -9,7 +9,24 @@ use App\Models\Product;
 
 class AddedPhase extends Component
 {
+    //PASSING A PRODUCT
+    public $selectedProducts = [];
+    public function changePhase()
+    {
+        if (!empty($this->selectedProducts)) {
+            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'precasted']);
+            $this->selectedProducts = [];
+        }
+    }
 
+    //FAILING A PRODUCT
+    public function FailPhase()
+    {
+        if (!empty($this->selectedProducts)) {
+            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'failed']);
+            $this->selectedProducts = [];
+        }
+    }
 
     public function render()
     {

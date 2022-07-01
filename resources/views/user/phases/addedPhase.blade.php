@@ -6,7 +6,7 @@
     </style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            Recently Added Light Component
         </h2>
     </x-slot>
 
@@ -26,7 +26,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="text-align: center;margin:auto;">
                                         <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="/addedphase"style="color:black;">Lights Added</a>
+                                        <a class="nav-link" aria-current="page" href="/addedphase"style="color:black;">Recently Added</a>
                                         </li>
                                         <li class="nav-item">
                                         <a class="nav-link" href="/precastphase"style="color:black;">Pre-Cast Phase</a>
@@ -58,7 +58,6 @@
                 </div>
             </div>
             <DIV style="margin-top: 1%;text-align:center;">
-                Added lights CONTENT
                 <livewire:added-phase />
             </DIV>
         </div>

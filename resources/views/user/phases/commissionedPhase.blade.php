@@ -6,7 +6,7 @@
     </style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            Commissioned Lights
         </h2>
     </x-slot>
 
@@ -58,7 +58,6 @@
                 </div>
             </div>
             <DIV style="margin-top: 1%;text-align:center;">
-                commissioned CONTENT
                 <livewire:commissioned-phase>
             </DIV>
         </div>
