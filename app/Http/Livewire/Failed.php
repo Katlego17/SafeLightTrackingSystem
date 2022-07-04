@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Product;
 
-class ProductsTableComponent extends Component
+class Failed extends Component
 {
     use WithPagination;
 
@@ -53,7 +53,7 @@ class ProductsTableComponent extends Component
         ->orderBy($this->sortBy, $this->sortDirection)
         ->paginate($this->perPage);
 
-        return view('livewire.products-table-component',[
+        return view('livewire.failed',[
             'items'=> $items
         ]);
     }

@@ -52,4 +52,8 @@ class PhaseController extends Controller
         return view('user.phases.commissionedPhase');
     }
 
+    public function showfailed()
+    {
+        return view('user.phases.failed');
+    }
 }

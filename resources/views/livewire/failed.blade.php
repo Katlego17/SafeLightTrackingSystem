@@ -31,7 +31,7 @@
                     <th wire:click="sortBy('DateStored')" style="cursor: pointer;">Date Stored</th>
                     <th wire:click="sortBy('DateSold')" style="cursor: pointer;">Date Sold</th>
                     <th wire:click="sortBy('DateCommissioned')" style="cursor: pointer;">Date Commissioned</th>
-                    <!--<th wire:click="sortBy('DateFailed')" style="cursor: pointer;">Date Failed</th>
+                    <th wire:click="sortBy('DateFailed')" style="cursor: pointer;">Date Failed</th>
                     <th wire:click="sortBy('EnoughVoltCheck')" style="cursor: pointer;">Enough Volts?</th>
                     <th wire:click="sortBy('WiringCheck')" style="cursor: pointer;">Wiring Good?</th>
                     <th wire:click="sortBy('BoardOutputCheck')" style="cursor: pointer;">Board Output Fine?</th>
@@ -41,7 +41,7 @@
                     <th wire:click="sortBy('RecycledCheck')" style="cursor: pointer;">Recycled?</th>
                     <th wire:click="sortBy('Comments')" style="cursor: pointer;">Comments</th>
                     <th wire:click="sortBy('EngineerName')" style="cursor: pointer;">Engineer Name</th>
-                    <th wire:click="sortBy('DateSentToEngineer')" style="cursor: pointer;">Date Sent to Engineer</th>-->
+                    <th wire:click="sortBy('DateSentToEngineer')" style="cursor: pointer;">Date Sent to Engineer</th>
                 </tr>
             </thead>
 
@@ -62,7 +62,7 @@
                     <td>{{$item->DateStored}}</td>
                     <td>{{$item->DateSold}}</td>
                     <td>{{$item->DateCommissioned}}</td>
-                    <!--<td>{{$item->DateFailed}}</td>
+                    <td>{{$item->DateFailed}}</td>
                     <td>{{$item->EnoughVoltCheck}}</td>
                     <td>{{$item->WiringCheck}}</td>
                     <td>{{$item->BoardOutputCheck}}</td>
@@ -72,7 +72,7 @@
                     <td>{{$item->RecycledCheck}}</td>
                     <td>{{$item->Comments}}</td>
                     <td>{{$item->EngineerName}}</td>
-                    <td>{{$item->DateSentToEngineer}}</td>-->
+                    <td>{{$item->DateSentToEngineer}}</td>
                 </tr>
 
                 @endforeach

@@ -62,4 +62,8 @@ Route::get('storedphase', [PhaseController::class, 'showstoredphase'])->name('st
 Route::get('soldphase', [PhaseController::class, 'showsoldphase'])->name('soldphase');
 Route::get('commissionedphase', [PhaseController::class, 'showcommissionedphase'])->name('commissionedphase');
 
+Route::get('failed', [PhaseController::class, 'showfailed'])->name('failed');
+
+
+
 

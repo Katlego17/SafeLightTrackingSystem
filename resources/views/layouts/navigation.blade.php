@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('phases')" :active="request()->routeIs('phases')">
                         Phases
                     </x-nav-link>
+                    <x-nav-link :href="route('failed')" :active="request()->routeIs('failed')">
+                        Failed Lights
+                    </x-nav-link>
                 </div>
             </div>
 
