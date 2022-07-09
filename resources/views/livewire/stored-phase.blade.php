@@ -23,6 +23,8 @@
             @endforeach
         </tbody>
     </table>
-    <button wire:click="changePhase()">Send Selected To Next Phase</button>
-    <button wire:click="FailPhase()">Fail Selected Light</button>
+    <div style="margin-top:1%;">
+        <button class="btn btn-success btn-sm" wire:click="changePhase()">Send Selected To Next Phase</button>
+        <button class="btn btn-warning btn-sm" type="button" wire:click.prevent="$emit('showModal')">Fail Selected Light</button>
+    </div>
 </div>

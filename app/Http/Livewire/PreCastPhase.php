@@ -9,6 +9,29 @@ use App\Models\Product;
 
 class PreCastPhase extends Component
 {
+    //Modal pop up
+    public $show;
+
+    protected $listeners = ['showModal' => 'showModal'];
+
+    public function mount() {
+        //$this->selectedProducts = $selectedProducts;
+        $this->show = false;
+    }
+
+    public function showModal() {
+        $this->selectedProducts = $selectedProducts;
+
+        $this->doShow();
+    }
+
+    public function doShow() {
+        $this->show = true;
+    }
+
+    public function doClose() {
+        $this->show = false;
+    }
     //PASSING A PRODUCT
     public $selectedProducts = [];
     public function changePhase()
@@ -36,5 +59,7 @@ class PreCastPhase extends Component
         return view('livewire.pre-cast-phase',[
             'precastedLights'=>$precastedLights
         ]);
+
+
     }
 }
