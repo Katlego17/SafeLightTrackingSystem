@@ -13,7 +13,7 @@
         <tbody>
             @foreach($precastedLights as $value)
             <tr>
-                <td>
+                <td style="margin:1%">
                     <input type="checkbox" class="form-checkbox h-6 w-6" value="{{$value->id}}" wire:model.defer="selectedProducts" ><!-- defer so it doesnt reload everytime its checked-->
                 </td>
                 <td>{{$value->id}}</td>
@@ -24,7 +24,7 @@
             @endforeach
         </tbody>
     </table>
-    <div style="margin-top:1%;">
+    <div style="margin:1%">
         <button class="btn btn-success btn-sm" wire:click="changePhase()">Send Selected To Next Phase</button>
         <button class="btn btn-warning btn-sm" type="button" wire:click.prevent="$emit('showModal')">Fail Selected Light</button>
     </div>

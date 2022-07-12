@@ -10,6 +10,11 @@
                 <option>25</option>
             </select>
         </div>
+        <div class="col form-inline">
+            <button >
+                <a href="/generate-pdf" target="_blank">Generage PDF</a>
+            </button>
+        </div>
 
         <div class="col">
             <input wire:model.debounce.300ms="search" class="form-control" type="text" placeholder="Search Through Products...">

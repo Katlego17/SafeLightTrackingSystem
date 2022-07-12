@@ -14,7 +14,8 @@ class AddedPhase extends Component
     public function changePhase()
     {
         if (!empty($this->selectedProducts)) {
-            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'precasted']);
+            $date = date('d/m/Y');//$date = date('Y-m-d H:i:s');
+            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'precasted','DatePreCasted' => $date]);
             $this->selectedProducts = [];
         }
     }

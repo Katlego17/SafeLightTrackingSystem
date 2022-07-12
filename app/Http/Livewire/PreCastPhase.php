@@ -11,16 +11,16 @@ class PreCastPhase extends Component
 {
     //Modal pop up
     public $show;
-
+    public $selectedProducts = [];
     protected $listeners = ['showModal' => 'showModal'];
 
     public function mount() {
-        //$this->selectedProducts = $selectedProducts;
+        #$this->selectedProducts = $selectedProducts;
         $this->show = false;
     }
 
     public function showModal() {
-        $this->selectedProducts = $selectedProducts;
+        $selectedProducts=$this->selectedProducts;
 
         $this->doShow();
     }
@@ -33,7 +33,7 @@ class PreCastPhase extends Component
         $this->show = false;
     }
     //PASSING A PRODUCT
-    public $selectedProducts = [];
+
     public function changePhase()
     {
         if (!empty($this->selectedProducts)) {

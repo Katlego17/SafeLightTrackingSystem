@@ -2,13 +2,18 @@
     <div class="row mb-4">
         <div class="col form-inline">
             Per Page: &nbsp;
-            <select wire:model="perPage" class="form-control">
+            <select wire:model="perPage" class="">
                 <option>2</option>
                 <option>5</option>
                 <option>10</option>
                 <option>15</option>
                 <option>25</option>
             </select>
+        </div>
+        <div class="col form-inline">
+            <button >
+                <a href="/generate-failedlights-pdf" target="_blank">Generage PDF</a>
+            </button>
         </div>
 
         <div class="col">

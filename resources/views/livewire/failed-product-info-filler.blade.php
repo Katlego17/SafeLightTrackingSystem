@@ -28,13 +28,12 @@
                     {{$selectedProducts}}
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary"
-                            type="button"
-                            wire:click.prevent="doClose()">Cancel</button>
-
-                    <button class="btn btn-secondary"
-                            type="button"
-                            wire:click.prevent="doSomething()">Do Something</button>
+                    <button class="btn btn-secondary"type="button"wire:click.prevent="doClose()">
+                        Cancel
+                    </button>
+                    <button class="btn btn-secondary"type="button"wire:click.prevent="doSomething()">
+                        Do Something
+                    </button>
                 </div>
             </div>
         </div>

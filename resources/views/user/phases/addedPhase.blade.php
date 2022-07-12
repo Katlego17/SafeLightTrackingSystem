@@ -11,7 +11,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-15xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -26,7 +26,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="text-align: center;margin:auto;">
                                         <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="/addedphase"style="color:black;">Recently Added</a>
+                                        <a class="nav-link" aria-current="page" href="/addedphase"style="color:black;">Lights Added</a>
                                         </li>
                                         <li class="nav-item">
                                         <a class="nav-link" href="/precastphase"style="color:black;">Pre-Cast Phase</a>
@@ -58,6 +58,11 @@
                 </div>
             </div>
             <DIV style="margin-top: 1%;text-align:center;">
+                <div >
+                    <button >
+                        <a href="/generate-addedlights-pdf" target="_blank">Generage PDF</a>
+                    </button>
+                </div>
                 <livewire:added-phase />
             </DIV>
         </div>

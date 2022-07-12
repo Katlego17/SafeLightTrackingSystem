@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class FailedProductInfoFiller extends Component
 {
-    //public $selectedProducts=[];
+    public $selectedProducts=[];
     public $show;
 
     protected $listeners = ['showModal' => 'showModal'];
@@ -18,7 +18,7 @@ class FailedProductInfoFiller extends Component
     }
 
     public function showModal() {
-        $this->selectedProducts = 7;
+        $this->selectedProducts = 5;
 
         $this->doShow();
     }
