@@ -9,8 +9,25 @@ use App\Models\Product;
 
 class AddedPhase extends Component
 {
+    //selecting all
+    public $selectAll = false;
+    public function updatedSelectAll($value)
+    {
+        if ($value)
+        {
+            $this->selectedProducts = Product::pluck('id');
+        }
+        else
+        {
+            $this->selectedProducts = [];
+        }
+
+    }
+
+
     //PASSING A PRODUCT
     public $selectedProducts = [];
+
     public function changePhase()
     {
         if (!empty($this->selectedProducts)) {
@@ -33,7 +50,7 @@ class AddedPhase extends Component
     {
 
         //rendering all products that are in the added phase
-        $addedLights = Product::where('CurrentPhase','=','added')->get();
+        $addedLights = Product::where('CurrentPhase','=','added')->paginate(10);
 
         return view('livewire.added-phase',[
             'addedLights'=>$addedLights

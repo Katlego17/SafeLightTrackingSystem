@@ -37,24 +37,46 @@ class PreCastPhase extends Component
     public function changePhase()
     {
         if (!empty($this->selectedProducts)) {
-            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'casted']);
+            $date = date('d/m/Y');//$date = date('Y-m-d H:i:s');
+            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'casted','DateCasted' => $date]);
             $this->selectedProducts = [];
         }
     }
 
     //FAILING A PRODUCT
+    public $DateSentToEngineer,$Comments,$EngineerName,$RecycledCheck,$EnoughVoltCheck,$BubblesCheck,$MeshShotCheck,$DiodeCheck,$WiringCheck,$BoardOutputCheck;
     public function FailPhase()
     {
         if (!empty($this->selectedProducts)) {
-            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'failed']);
+            $date = date('d/m/Y');
+            if ($this->DateSentToEngineer == null)
+                        {
+                            $this->DateSentToEngineer = $date;
+                        }
+            Product::whereIn('id', $this->selectedProducts)
+                    ->update([
+                        'CurrentPhase' => 'failed',
+                        'DateFailed' => $this->DateSentToEngineer,
+                        'EnoughVoltCheck' => $this->EnoughVoltCheck,
+                        'WiringCheck' => $this->WiringCheck,
+                        'BoardOutputCheck' => $this->BoardOutputCheck,
+                        'DiodeCheck' => $this->DiodeCheck,
+                        'MeshShotCheck' => $this->MeshShotCheck,
+                        'BubblesCheck' => $this->BubblesCheck,
+                        'RecycledCheck' => $this->RecycledCheck,
+                        'DateSentToEngineer' => $this->DateSentToEngineer,
+                        'EngineerName' => $this->EngineerName,
+                        'Comments' => $this->Comments
+                    ]);
             $this->selectedProducts = [];
+            $this->doClose();
         }
     }
 
     public function render()
     {
         //rendering all products that are in the added phase
-        $precastedLights = Product::where('CurrentPhase','=','precasted')->get();
+        $precastedLights = Product::where('CurrentPhase','=','precasted')->paginate(10);
 
         return view('livewire.pre-cast-phase',[
             'precastedLights'=>$precastedLights

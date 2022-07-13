@@ -15,7 +15,8 @@ class SoldPhase extends Component
     public function changePhase()
     {
         if (!empty($this->selectedProducts)) {
-            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'commissioned']);
+            $date = date('d/m/Y');//$date = date('Y-m-d H:i:s');
+            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'commissioned','DateCommissioned' => $date]);
             $this->selectedProducts = [];
         }
     }
@@ -33,7 +34,7 @@ class SoldPhase extends Component
 
 
         //rendering all products that are in the added phase
-        $soldLights = Product::where('CurrentPhase','=','sold')->get();
+        $soldLights = Product::where('CurrentPhase','=','sold')->paginate(10);
 
         return view('livewire.sold-phase',[
             'soldLights'=>$soldLights

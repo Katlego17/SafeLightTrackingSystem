@@ -21,7 +21,7 @@
         </div>
 
     </div>
-    <div style="overflow-x:auto;">
+    <div style="overflow-x:auto; text-align:center;">
         <table class="table">
             <thead>
                 <tr>
@@ -92,10 +92,6 @@
 
 
     <div>
-
-        <p>
-            Showing {{$items->firstItem()}} to {{$items->lastItem()}} out of {{$items->total()}} items
-        </p>
         <p>
 
             {{$items->links()}}

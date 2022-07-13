@@ -12,7 +12,7 @@ class CommissionedPhase extends Component
     public function render()
     {
         //rendering all products that are in the added phase
-        $commissionedLights = Product::where('CurrentPhase','=','commissioned')->get();
+        $commissionedLights = Product::where('CurrentPhase','=','commissioned')->paginate(10);
 
         return view('livewire.commissioned-phase',[
             'commissionedLights'=>$commissionedLights

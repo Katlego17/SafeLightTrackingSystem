@@ -9,21 +9,64 @@ use App\Models\Product;
 
 class AssembledPhase extends Component
 {
-    //PASSING A PRODUCT
+    //Modal pop up
+    public $show;
     public $selectedProducts = [];
+    protected $listeners = ['showModal' => 'showModal'];
+
+    public function mount() {
+        #$this->selectedProducts = $selectedProducts;
+        $this->show = false;
+    }
+
+    public function showModal() {
+        $selectedProducts=$this->selectedProducts;
+
+        $this->doShow();
+    }
+
+    public function doShow() {
+        $this->show = true;
+    }
+
+    public function doClose() {
+        $this->show = false;
+    }
+    //PASSING A PRODUCT
     public function changePhase()
     {
         if (!empty($this->selectedProducts)) {
-            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'stored']);
+            $date = date('d/m/Y');//$date = date('Y-m-d H:i:s');
+            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'stored','DateStored' => $date]);
             $this->selectedProducts = [];
         }
     }
 
     //FAILING A PRODUCT
+    public $DateSentToEngineer,$Comments,$EngineerName,$RecycledCheck,$EnoughVoltCheck,$BubblesCheck,$MeshShotCheck,$DiodeCheck,$WiringCheck,$BoardOutputCheck;
     public function FailPhase()
     {
         if (!empty($this->selectedProducts)) {
-            Product::whereIn('id', $this->selectedProducts)->update(['CurrentPhase' => 'failed']);
+            $date = date('d/m/Y');
+            if ($this->DateSentToEngineer == null)
+                        {
+                            $this->DateSentToEngineer = $date;
+                        }
+            Product::whereIn('id', $this->selectedProducts)
+            ->update([
+                'CurrentPhase' => 'failed',
+                'DateFailed' => $this->DateSentToEngineer,
+                'EnoughVoltCheck' => $this->EnoughVoltCheck,
+                'WiringCheck' => $this->WiringCheck,
+                'BoardOutputCheck' => $this->BoardOutputCheck,
+                'DiodeCheck' => $this->DiodeCheck,
+                'MeshShotCheck' => $this->MeshShotCheck,
+                'BubblesCheck' => $this->BubblesCheck,
+                'RecycledCheck' => $this->RecycledCheck,
+                'DateSentToEngineer' => $this->DateSentToEngineer,
+                'EngineerName' => $this->EngineerName,
+                'Comments' => $this->Comments
+            ]);
             $this->selectedProducts = [];
         }
     }
@@ -31,7 +74,7 @@ class AssembledPhase extends Component
     public function render()
     {
         //rendering all products that are in the assembled phase
-        $assembledLights = Product::where('CurrentPhase','=','assembled')->get();
+        $assembledLights = Product::where('CurrentPhase','=','assembled')->paginate(10);
 
         return view('livewire.assembled-phase',[
             'assembledLights'=>$assembledLights
