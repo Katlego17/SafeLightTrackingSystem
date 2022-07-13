@@ -6,6 +6,7 @@ use Livewire\Component;
 
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
+use App\Models\Client;
 
 class StoredPhase extends Component
 {
@@ -42,31 +43,16 @@ class StoredPhase extends Component
         }
     }
 
-    //FAILING A PRODUCT
-    public $DateSentToEngineer,$Comments,$EngineerName,$RecycledCheck,$EnoughVoltCheck,$BubblesCheck,$MeshShotCheck,$DiodeCheck,$WiringCheck,$BoardOutputCheck;
-    public function FailPhase()
+    //Allocatng A PRODUCT
+    public $GroupName,$Name,$Site,$section,$Level,$Cabinet;
+    public function AllocateToClient()
     {
         if (!empty($this->selectedProducts)) {
-            $date = date('d/m/Y');
-            if ($this->DateSentToEngineer == null)
-                        {
-                            $this->DateSentToEngineer = $date;
-                        }
-            Product::whereIn('id', $this->selectedProducts)
+            /*Product::whereIn('id', $this->selectedProducts)
                     ->update([
                         'CurrentPhase' => 'failed',
-                        'DateFailed' => $this->DateSentToEngineer,
-                        'EnoughVoltCheck' => $this->EnoughVoltCheck,
-                        'WiringCheck' => $this->WiringCheck,
-                        'BoardOutputCheck' => $this->BoardOutputCheck,
-                        'DiodeCheck' => $this->DiodeCheck,
-                        'MeshShotCheck' => $this->MeshShotCheck,
-                        'BubblesCheck' => $this->BubblesCheck,
-                        'RecycledCheck' => $this->RecycledCheck,
-                        'DateSentToEngineer' => $this->DateSentToEngineer,
-                        'EngineerName' => $this->EngineerName,
-                        'Comments' => $this->Comments
-                    ]);
+                    ]);*/
+
             $this->selectedProducts = [];
             $this->doClose();
         }
@@ -76,9 +62,23 @@ class StoredPhase extends Component
     {
         //rendering all products that are in the added phase
         $storedLights = Product::where('CurrentPhase','=','stored')->paginate(10);
+        //Client details
+        $MineGroupName = Client::get('GroupName');
+        $MineName = Client::get('Name');
+        $MineSiteName = Client::get('Site');
+        $MineSectionName = Client::get('Section');
+        $MineLevelName = Client::get('Level');
+        $MineCabinetName = Client::get('Cabinet');
 
         return view('livewire.stored-phase',[
-            'storedLights'=>$storedLights
+            'storedLights'=>$storedLights,
+
+            'MineGroupName'=>$MineGroupName,
+            'MineName'=>$MineName,
+            'MineSiteName'=>$MineSiteName,
+            'MineSectionName'=>$MineSectionName,
+            'MineLevelName'=>$MineLevelName,
+            'MineCabinetName'=>$MineCabinetName
         ]);
     }
 }

@@ -26,8 +26,7 @@
     </div>
     <div style="margin-top:1%;">
         <button class="btn btn-success btn-sm" wire:click="changePhase()">Send Selected To Next Phase</button>
-        <button class="btn btn-warning btn-sm" type="button" wire:click.prevent="$emit('showModal')">Fail Selected Light</button>
-        <button class="btn btn-secondary btn-sm" type="button" wire:click.prevent="$emit('AllocateClient')">Allocate Light To Client</button>
+        <button class="btn btn-warning btn-sm" type="button" wire:click.prevent="$emit('showModal')">Allocate Light(s) To Client</button>
     </div>
 
     <!--MY MODAL-->
@@ -55,90 +54,67 @@
                 </div>
                 <div class="modal-body" style="text-align: center;margin:auto">
                       <div>
-                        <label>Does battery have enough Volt's?</label>
-                        <select wire:model="EnoughVoltCheck" aria-placeholder="Choose option">
+                        <label>Mine Group Name</label>
+                        <select wire:model="GroupName" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            @foreach ($MineGroupName as $row)
+                                <option value="">{{$row->GroupName}}</option>
+                            @endforeach
                         </select>
                       </div>
                       <div>
-                        <label>Wiring done well?</label>
-                        <select wire:model="WiringCheck" aria-placeholder="Choose option">
+                        <label>Mine Name</label>
+                        <select wire:model="Name" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            @foreach ($MineName as $row)
+                                <option value="">{{$row->Name}}</option>
+                            @endforeach
                         </select>
                       </div>
                       <div>
-                        <label>PC Board output well?</label>
-                        <select wire:model="BoardOutputCheck" aria-placeholder="Choose option">
+                        <label>Mine Site</label>
+                        <select wire:model="Site" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            @foreach ($MineSiteName as $row)
+                                <option value="">{{$row->Site}}</option>
+                            @endforeach
                         </select>
                       </div>
                       <div>
-                        <label>Diodides connected well?</label>
-                        <select wire:model="DiodeCheck" aria-placeholder="Choose option">
+                        <label>Mine Section</label>
+                        <select wire:model="Section" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            @foreach ($MineSectionName as $row)
+                                <option value="">{{$row->Section}}</option>
+                            @endforeach
                         </select>
                       </div>
                       <div>
-                        <label>Shots by the mesh?</label>
-                        <select wire:model="MeshShotCheck" aria-placeholder="Choose option">
+                        <label>Mine Level</label>
+                        <select wire:model="Level" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            @foreach ($MineLevelName as $row)
+                                <option value="">{{$row->Level}}</option>
+                            @endforeach
                         </select>
                       </div>
                       <div>
-                        <label>Too many bubble's?</label>
-                        <select wire:model="BubblesCheck" aria-placeholder="Choose option">
+                        <label>Mine Cabinet</label>
+                        <select wire:model="Cabinet" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            @foreach ($MineCabinetName as $row)
+                                <option value="">{{$row->Cabinet}}</option>
+                            @endforeach
                         </select>
                       </div>
-                      <div>
-                        <label>Recycled?</label>
-                        <select wire:model="RecycledCheck" aria-placeholder="Choose option">
-                            <option value="">Select Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label>Comment</label>
-                        <input type="textbox" wire:model="Comments" aria-placeholder="Enter Comment">
-                      </div>
-                      <div>
-                        <h3>Fill if taken to Engineer!</h3>
-                        <div>
-                            <label>Sent to Engineer?</label>
-                            <select>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Engineer Name</label>
-                            <input wire:model="EngineerName" type="text" aria-placeholder="Enter Engineer Name">
-                        </div>
-                        <div>
-                            <label>Date Sent</label>
-                            <p>Date: <input placeholder="SELECT A DATE" wire:model="DateSentToEngineer" type="text" id="datepicker" name="DateSentToEngineer" id="DateSentToEngineer" ></p>
-                        </div>
-                      </div>
+
                 </div>
                 <div class="modal-footer" style="text-align: center;margin:auto">
                     <button class="btn btn-secondary"type="button"wire:click.prevent="doClose()">
                         Cancel
                     </button>
-                    <button class="btn btn-primary"type="button"wire:click.prevent="FailPhase()">
-                        Submit Failed Light
+                    <button class="btn btn-primary"type="button"wire:click.prevent="AllocateToClient()">
+                        Allocate Light(s)
                     </button>
                 </div>
             </div>
