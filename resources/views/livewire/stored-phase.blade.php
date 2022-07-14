@@ -3,6 +3,7 @@
     <table style="text-align: center; margin:auto">
         <thead>
             <tr>
+                <th></th>
                 <th>Serial Number</th>
                 <th>Electronic Board ID</th>
                 <th>Battery ID</th>
@@ -58,7 +59,7 @@
                         <select wire:model="GroupName" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
                             @foreach ($MineGroupName as $row)
-                                <option value="">{{$row->GroupName}}</option>
+                                <option value={{$row->id}}>{{$row->GroupName}}</option>
                             @endforeach
                         </select>
                       </div>
