@@ -22,7 +22,7 @@
                         View Products
                     </x-nav-link>
                     <x-nav-link :href="route('addclient')" :active="request()->routeIs('addclient')">
-                        Add Client
+                        Client Management
                     </x-nav-link>
                     <x-nav-link :href="route('addedphase')" :active="request()->routeIs('phases')">
                         Phases

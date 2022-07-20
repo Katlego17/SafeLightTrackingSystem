@@ -6,15 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 use Illuminate\Database\DBAL\TimestampType;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
     public function showProductAdder()
     {
-        return view('user.addproduct');
+        $date = date('d/m/Y');//$date = date('Y-m-d H:i:s');
+        return view('user.addproduct',[
+            'current_date_time'=>$date
+        ]);
     }
     public function showProducts()
     {
+
         return view('user.viewproduct');
     }
     // Store Product data
@@ -24,8 +29,10 @@ class ProductController extends Controller
         $this->validate($request, [
             'SerialNumber' => 'required',
             'ElectronicBoardID' => 'required',
-            'BatteryID' => 'required',
-            'DateAdded' => 'required'
+            'BatteryID' => 'required'/*,
+            'DateAdded' => 'required'*/
+         ],[
+
          ]);
         //  Store data in database
         Product::create($request->all());

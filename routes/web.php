@@ -102,6 +102,7 @@ Route::post('/p', [ProductController::class, 'AddProduct'])->name('AddProduct');
 Route::get('showproduct', [ProductController::class, 'showProducts'])->name('showproduct');
 
 Route::get('addclient', [ClientController::class, 'showClientAdder'])->name('addclient');
+Route::get('clientviewer', [ClientController::class, 'ClientViewer'])->name('clientviewer');
 
 Route::post('/c', [ClientController::class, 'AddClient'])->name('AddClient');
 //adding a mine group name

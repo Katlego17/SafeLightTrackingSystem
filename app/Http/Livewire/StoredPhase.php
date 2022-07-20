@@ -47,13 +47,13 @@ class StoredPhase extends Component
     public $GroupName,$Name,$Site,$Section,$Level,$Cabinet;
     public function AllocateToClient()
     {
-        #dd($this->GroupName);
         //Need to make sure about
         if (!empty($this->selectedProducts)) {
-            Product::whereIn('id', $this->selectedProducts)
+            /*Product::whereIn('id', $this->selectedProducts)
                     ->update([
                         'client_id' => $this->GroupName,
-                    ]);
+                    ]);*/
+            dd($this->selectedProducts);
 
             $this->selectedProducts = [];
             $this->doClose();

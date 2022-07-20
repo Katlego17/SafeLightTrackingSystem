@@ -25,7 +25,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('alllightssummary.pdf');
     }
 
     /**
@@ -45,7 +45,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('failedlightssummary.pdf');
     }
     /**
      * Display a listing of the resource.
@@ -64,7 +64,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('addedlightssummary.pdf');
     }
 
     /**
@@ -84,7 +84,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('precastinglights.pdf');
     }
 
     /**
@@ -104,7 +104,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('castinglights.pdf');
     }
 
     /**
@@ -124,7 +124,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('postcastedlights.pdf');
     }
 
     /**
@@ -144,7 +144,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('assembledlights.pdf');
     }
 
     /**
@@ -164,7 +164,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('storedlights.pdf');
     }
 
     /**
@@ -184,7 +184,7 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('soldlights.pdf');
     }
 
     /**
@@ -204,6 +204,6 @@ class ProductsPDFController extends Controller
 
         $pdf = PDF::loadView('pdf.productspdf', $data);
 
-        return $pdf->download('productssummary.pdf');
+        return $pdf->download('commissionedlights.pdf');
     }
 }

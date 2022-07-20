@@ -32,7 +32,7 @@
                             <input placeholder="Enter Battery ID" type="text" class="form-control" name="BatteryID" id="BatteryID">
                         </div>
                         <div class="form-group">
-                            <p>Date: <input placeholder="SELECT A DATE" type="text" id="datepicker" name="DateAdded" id="DateAdded" ></p>
+                            <p>Date: <input placeholder={{$current_date_time}} type="text" id="datepicker" name="DateAdded" id="DateAdded" value={{$current_date_time}} ></p>
                         </div>
                         <!--
                         <div class="form-group">
