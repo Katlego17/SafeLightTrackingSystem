@@ -23,4 +23,14 @@ class MineName extends Model
     {
         return $this->BelongsTo(MineGroupName::class);
     }
+
+    /**
+     * Get all of the comments f MineName
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function minesites()
+    {
+        return $this->hasMany(MineSite::class);
+    }
 }

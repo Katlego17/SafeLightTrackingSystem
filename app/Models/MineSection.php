@@ -9,18 +9,28 @@ class MineSection extends Model
 {
     use HasFactory;
 
-    protected $table = 'mine_sites';
+    protected $table = 'mine_sections';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['MineSiteName','mine_name_id'];
+    protected $fillable = ['MineSectionName','mine_site_id'];
 
     /**
      * Get the user that owns the MineName
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function minename()
+    public function minesite()
     {
-        return $this->BelongsTo(MineName::class);
+        return $this->BelongsTo(MineSite::class);
+    }
+
+    /**
+     * Get all of the comments f MineName
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function minelevels()
+    {
+        return $this->hasMany(MineLevel::class);
     }
 }
