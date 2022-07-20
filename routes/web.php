@@ -105,7 +105,7 @@ Route::get('addclient', [ClientController::class, 'showClientAdder'])->name('add
 
 Route::post('/c', [ClientController::class, 'AddClient'])->name('AddClient');
 //adding a mine group name
-Route::post('/addminegroupname', [MineGroupNameController::class, 'AddMineGroup'])->name('addminegroupname');
+Route::post('/addclientdetails', [ClientController::class, 'AddClient'])->name('addclientdetails');
 
 //Phases
 Route::get('phases', [PhaseController::class, 'showPhases'])->name('phases');

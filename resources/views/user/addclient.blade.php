@@ -16,7 +16,7 @@
                                 {{Session::get('success')}}
                             </div>
                         @endif
-                        <form method="post" action="{{ route('addminegroupname') }}" style="text-align: center">
+                        <form method="post" action="{{ route('addclientdetails') }}" style="text-align: center">
                             <!-- CROSS Site Request Forgery Protection -->
                             @csrf
                             <div class="form-group">

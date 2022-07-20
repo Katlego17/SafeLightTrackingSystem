@@ -16,6 +16,7 @@ class MineGroupNameController extends Controller
 
     public function AddMineGroup(Request $request)
     {
+        dd(5);
         //ADDING GROUPNAME WITH MINE NAME RELATED
         $GroupName= new MineGroupName;
         $GroupName->MineGroupName=$request->GroupName;//assigning group name here

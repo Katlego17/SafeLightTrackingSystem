@@ -36,17 +36,18 @@ class ClientController extends Controller
 
     // Store Product data
     public function AddClient(Request $request) {
-        // Form validation
-        $this->validate($request, [
-            'GroupName' => 'required',
-            'Name' => 'required',
-            'Site' => 'required',
-            'Section' => 'required',
-            'Level' => 'required',
-            'Cabinet' => 'required'
-         ]);
-        //  Store data in database
-        Client::create($request->all());
-        return back()->with('success', 'Client has been added.');
+        dd(7);
+        //ADDING GROUPNAME WITH MINE NAME RELATED
+        $GroupName= new MineGroupName;
+        $GroupName->MineGroupName=$request->GroupName;//assigning group name here
+        $GroupName->save();//saving groupname
+
+        $MineName = [new MineName(['MineName' => $request->MineName])];//assigning mine name
+
+        $GroupName->minenames()->saveMany($MineName);//saving mine name with related groupname
+
+
+
+        return back()->with('success', 'Mine Group Name has been added.');
     }
 }
