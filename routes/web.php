@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PhaseController;
+use App\Http\Controllers\MineGroupNameController;
 use App\Http\Controllers\ProductsPDFController;
 use App\Models\User;
 use App\Models\Product;
@@ -101,7 +102,10 @@ Route::post('/p', [ProductController::class, 'AddProduct'])->name('AddProduct');
 Route::get('showproduct', [ProductController::class, 'showProducts'])->name('showproduct');
 
 Route::get('addclient', [ClientController::class, 'showClientAdder'])->name('addclient');
+
 Route::post('/c', [ClientController::class, 'AddClient'])->name('AddClient');
+//adding a mine group name
+Route::post('/addminegroupname', [MineGroupNameController::class, 'AddMineGroup'])->name('addminegroupname');
 
 //Phases
 Route::get('phases', [PhaseController::class, 'showPhases'])->name('phases');

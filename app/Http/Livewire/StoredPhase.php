@@ -44,14 +44,16 @@ class StoredPhase extends Component
     }
 
     //Allocatng A PRODUCT
-    public $GroupName,$Name,$Site,$section,$Level,$Cabinet;
+    public $GroupName,$Name,$Site,$Section,$Level,$Cabinet;
     public function AllocateToClient()
     {
+        #dd($this->GroupName);
+        //Need to make sure about
         if (!empty($this->selectedProducts)) {
-            /*Product::whereIn('id', $this->selectedProducts)
+            Product::whereIn('id', $this->selectedProducts)
                     ->update([
-                        'CurrentPhase' => 'failed',
-                    ]);*/
+                        'client_id' => $this->GroupName,
+                    ]);
 
             $this->selectedProducts = [];
             $this->doClose();
@@ -63,12 +65,12 @@ class StoredPhase extends Component
         //rendering all products that are in the added phase
         $storedLights = Product::where('CurrentPhase','=','stored')->paginate(10);
         //Client details
-        $MineGroupName = Client::get('GroupName');
-        $MineName = Client::get('Name');
-        $MineSiteName = Client::get('Site');
-        $MineSectionName = Client::get('Section');
-        $MineLevelName = Client::get('Level');
-        $MineCabinetName = Client::get('Cabinet');
+        $MineGroupName = Client::get();
+        $MineName = Client::get();
+        $MineSiteName = Client::get();
+        $MineSectionName = Client::get();
+        $MineLevelName = Client::get();
+        $MineCabinetName = Client::get();
 
         return view('livewire.stored-phase',[
             'storedLights'=>$storedLights,
