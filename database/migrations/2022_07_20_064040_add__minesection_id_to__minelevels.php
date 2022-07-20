@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('_minesections', function (Blueprint $table) {
-            //
+        Schema::table('mine_levels', function (Blueprint $table) {
+            $table->unsignedBigInteger('mine_section_id')->after('id')->nullable();
+            $table->foreign('mine_section_id')->references('id')->on('mine_sections')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -25,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('_minesections', function (Blueprint $table) {
+        Schema::table('mine_levels', function (Blueprint $table) {
             //
         });
     }
