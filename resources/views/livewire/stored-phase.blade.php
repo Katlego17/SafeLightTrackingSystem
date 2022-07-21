@@ -45,7 +45,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Client Allocation Form</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Diagnostic Form</h5>
                     <button class="close"
                             type="button"
                             aria-label="Close"
@@ -56,10 +56,10 @@
                 <div class="modal-body" style="text-align: center;margin:auto">
                       <div>
                         <label>Mine Group Name</label>
-                        <select  wire:model="client_id" aria-placeholder="Choose Mine Group Name">
+                        <select wire:model="GroupName" wire:model="$client_id" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
                             @foreach ($MineGroupName as $row)
-                                <option value={{$row->client_id}}>{{$row->GroupName}}.{{$row->client_id}}</option>
+                                <option value={{$row->GroupName}}>{{$row->GroupName}}</option>
                             @endforeach
                         </select>
                       </div>
@@ -68,7 +68,7 @@
                         <select wire:model="Name" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
                             @foreach ($MineName as $row)
-                                <option value="">{{$row->Name}}</option>
+                                <option value={{$row->Name}}>{{$row->Name}}</option>
                             @endforeach
                         </select>
                       </div>
@@ -77,7 +77,7 @@
                         <select wire:model="Site" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
                             @foreach ($MineSiteName as $row)
-                                <option value="">{{$row->Site}}</option>
+                                <option value={{$row->Site}}>{{$row->Site}}</option>
                             @endforeach
                         </select>
                       </div>
@@ -86,7 +86,7 @@
                         <select wire:model="Section" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
                             @foreach ($MineSectionName as $row)
-                                <option value="">{{$row->Section}}</option>
+                                <option value={{$row->Section}}>{{$row->Section}}</option>
                             @endforeach
                         </select>
                       </div>
@@ -95,7 +95,7 @@
                         <select wire:model="Level" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
                             @foreach ($MineLevelName as $row)
-                                <option value="">{{$row->Level}}</option>
+                                <option value={{$row->Level}}>{{$row->Level}}</option>
                             @endforeach
                         </select>
                       </div>
@@ -104,7 +104,7 @@
                         <select wire:model="Cabinet" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
                             @foreach ($MineCabinetName as $row)
-                                <option value="">{{$row->Cabinet}}</option>
+                                <option value={{$row->Cabinet}}>{{$row->Cabinet}}</option>
                             @endforeach
                         </select>
                       </div>

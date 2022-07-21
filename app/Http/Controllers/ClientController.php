@@ -71,6 +71,8 @@ class ClientController extends Controller
             'Cabinet' => $request->MineCabinet
         ]);
         $Details->save();
+        //Need to update columns
+
 
         return back()->with('success', 'Client details has been added.');
     }
