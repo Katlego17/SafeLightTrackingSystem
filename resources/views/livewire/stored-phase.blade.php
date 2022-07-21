@@ -45,7 +45,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Diagnostic Form</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Client Allocation Form</h5>
                     <button class="close"
                             type="button"
                             aria-label="Close"
@@ -56,10 +56,10 @@
                 <div class="modal-body" style="text-align: center;margin:auto">
                       <div>
                         <label>Mine Group Name</label>
-                        <select wire:model="GroupName" aria-placeholder="Choose Mine Group Name">
+                        <select  wire:model="client_id" aria-placeholder="Choose Mine Group Name">
                             <option value="">Select Option</option>
                             @foreach ($MineGroupName as $row)
-                                <option value={{$row->id}}>{{$row->GroupName}}</option>
+                                <option value={{$row->client_id}}>{{$row->GroupName}}.{{$row->client_id}}</option>
                             @endforeach
                         </select>
                       </div>

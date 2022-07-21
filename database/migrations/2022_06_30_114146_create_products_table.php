@@ -39,6 +39,13 @@ return new class extends Migration
             $table->string('Comments')->nullable();
             $table->string('EngineerName')->nullable();
             $table->string('DateSentToEngineer')->nullable();
+            //client details
+            $table->string('GroupName')->nullable();
+            $table->string('Name')->nullable();
+            $table->string('Site')->nullable();
+            $table->string('Section')->nullable();
+            $table->string('Level')->nullable();
+            $table->string('Cabinet')->nullable();
             $table->timestamps();
         });
     }

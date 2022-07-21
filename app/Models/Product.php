@@ -9,7 +9,21 @@ class Product extends Model
 {
     use HasFactory;
 
-    public $fillable = ['SerialNumber', 'ElectronicBoardID', 'BatteryID', 'DateAdded','CurrentPhase'];
+    public $fillable = [
+        'SerialNumber',
+        'ElectronicBoardID',
+        'BatteryID',
+        'DateAdded',
+        'CurrentPhase',
+        'DatePreCasted',
+        'DateCasted',
+        'DatePostCasted',
+        'DateAssembled',
+        'DateStored',
+        'DateSold',
+        'DateCommissioned',
+        'DateFailed'
+        ];
 
     /**
      * Get the user that owns the Product
